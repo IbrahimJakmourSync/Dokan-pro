@@ -197,8 +197,8 @@ class Dokan_Pro_Admin_Settings {
                 'label'   => __( 'Order Status for Withdraw', 'dokan' ),
                 'desc'    => __( 'Order status for which vendor can make a withdraw request.', 'dokan' ),
                 'type'    => 'multicheck',
-                'default' => array( 'wc-completed' => __( 'Completed', 'dokan' ), 'wc-processing' => __( 'Processing', 'dokan' ), 'wc-on-hold' => __( 'On-hold', 'dokan' ) ),
-                'options' => array( 'wc-completed' => __( 'Completed', 'dokan' ), 'wc-processing' => __( 'Processing', 'dokan' ), 'wc-on-hold' => __( 'On-hold', 'dokan' ) )
+                'default' => array( 'wc-completed' => __( 'Completed', 'dokan' ), 'wc-processing' => __( 'Processing', 'dokan' ), 'wc-pickedup' => __( 'Picked Up', 'dokan' ),'wc-ready-to-deliver' => __( 'Ready To Deliver', 'dokan' ) ),
+                'options' => array( 'wc-completed' => __( 'Completed', 'dokan' ), 'wc-processing' => __( 'Processing', 'dokan' ), 'wc-pickedup' => __( 'Picked Up', 'dokan' ),'wc-ready-to-deliver' => __( 'Ready To Deliver', 'dokan' ) )
             ),
             'withdraw_date_limit'   => array(
                 'name'    => 'withdraw_date_limit',

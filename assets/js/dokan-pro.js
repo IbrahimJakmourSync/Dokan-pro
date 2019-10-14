@@ -393,10 +393,19 @@ jQuery( function( $ ) {
                 if ( commission_type == 'percentage' ) {
                     if ( $('input.dokan-product-sales-price-variable' ).val() == '' ) {
                         $( 'input.dokan-product-regular-price-variable').each( function( i, elm ) {
+                    var newValue=( ($(this).closest( elm ).val() * vendor_percentage ) / 100 );
+                    var value=$(this).closest( elm ).val();
+                    var total=(parseFloat(value)-parseFloat(newValue));
+                    var commission=0;
+                    if (parseFloat(total) > 5) {
+                     commission=newValue;
+                     } else {
+                     commission=value-5;
+                    }
                             var $element = $(elm);
 
                             $element.closest('.content-half-part').find('span.vendor-price').html(
-                                parseFloat( accounting.formatNumber( ( ( $(this).closest( elm ).val() * vendor_percentage ) / 100 ), dokan.rounding_precision, '' ) )
+                                parseFloat( accounting.formatNumber( commission, dokan.rounding_precision, '' ) )
                                 .toString()
                                 .replace( '.', dokan.mon_decimal_point )
                             )
@@ -405,10 +414,19 @@ jQuery( function( $ ) {
                         } );
                     } else {
                         $( 'input.dokan-product-sales-price-variable').each( function( i, elm ) {
+                             var newValue=( ($(this).closest( elm ).val() * vendor_percentage ) / 100 );
+                    var value=$(this).closest( elm ).val();
+                    var total=(parseFloat(value)-parseFloat(newValue));
+                    var commission=0;
+                    if (parseFloat(total) > 5) {
+                     commission=newValue;
+                     } else {
+                     commission=value-5;
+                    }
                             var $element = $( elm );
 
                             $element.closest('.variable_pricing').find('span.vendor-price').html(
-                                parseFloat( accounting.formatNumber( ( ( $(this).closest( elm ).val() * vendor_percentage ) / 100 ), dokan.rounding_precision, '' ) )
+                                parseFloat( accounting.formatNumber( commission, dokan.rounding_precision, '' ) )
                                 .toString()
                                 .replace( '.', dokan.mon_decimal_point )
                             )
@@ -419,10 +437,19 @@ jQuery( function( $ ) {
                 } else {
                     if ( $('input.dokan-product-sales-price-variable' ).val() == '' ) {
                         $( 'input.dokan-product-regular-price-variable').each( function( i, elm ) {
+                        var newValue=( ($(this).closest( elm ).val() - vendor_percentage ) );
+                    var value=$(this).closest( elm ).val();
+                    var total=(parseFloat(value)-parseFloat(newValue));
+                    var commission=0;
+                    if (parseFloat(total) > 5) {
+                     commission=newValue;
+                     } else {
+                     commission=value-5;
+                    }
                             var $element = $(elm);
 
                             $element.closest('.variable_pricing').find('span.vendor-price').html(
-                                parseFloat( accounting.formatNumber( (  $(this).closest( elm ).val() - vendor_percentage ), dokan.rounding_precision, '' ) )
+                                parseFloat( accounting.formatNumber( commission, dokan.rounding_precision, '' ) )
                                 .toString()
                                 .replace( '.', dokan.mon_decimal_point )
                             );
@@ -432,10 +459,19 @@ jQuery( function( $ ) {
                         } );
                     } else {
                         $( 'input.dokan-product-sales-price-variable' ).each( function( i, elm ) {
+                            var newValue=( ($(this).closest( elm ).val() - vendor_percentage ) );
+                            var value=$(this).closest( elm ).val();
+                            var total=(parseFloat(value)-parseFloat(newValue));
+                            var commission=0;
+                            if (parseFloat(total) > 5) {
+                            commission=newValue;
+                            } else {
+                            commission=value-5;
+                           }
                             var $element = $( elm );
 
                             $element.closest('.variable_pricing').find('span.vendor-price').html(
-                                parseFloat( accounting.formatNumber( (  $(this).closest( elm ).val() - vendor_percentage ), dokan.rounding_precision, '' ) )
+                                parseFloat( accounting.formatNumber( commission, dokan.rounding_precision, '' ) )
                                 .toString()
                                 .replace( '.', dokan.mon_decimal_point )
                             );
